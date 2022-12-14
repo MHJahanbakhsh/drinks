@@ -1,12 +1,20 @@
 import * as React from 'react';
 import { DrinksContext } from '../pages';
-import { useContext } from 'react';
 
+//mui
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import { Typography } from '@mui/material';
+import Button from '@mui/material';
 
 const Item = ()=>{
-    const drinks = useContext(DrinksContext)
-    console.log({drinks})
-    return <div>item</div>
+    return <div>
+      <Card>hi</Card>
+     
+
+    </div>
 }
 
 export default Item

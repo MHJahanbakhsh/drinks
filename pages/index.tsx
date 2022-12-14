@@ -8,11 +8,11 @@ import styles from '../styles/Home.module.css'
 import Main from '../components/Main'
 import Header from '../components/layouts/Header'
 
-export const DrinksContext = React.createContext(null)
+export const DrinksContext = React.createContext([])
 
 export default function Home(props:any) {
   return (
-    <DrinksContext.Provider value={props.drinks}>
+    // <DrinksContext.Provider value={props.drinks}>
     <div className={styles.container}>
 
       <Head>
@@ -21,13 +21,14 @@ export default function Home(props:any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    {/* <Header/> */}
+    <Header/>
 
       <Main/>
 
     
     </div>
-    </DrinksContext.Provider>
+    // </DrinksContext.Provider>
+    
   )
 }
 
