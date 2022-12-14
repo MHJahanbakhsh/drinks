@@ -1,20 +1,36 @@
-import * as React from 'react';
-import Item from './Item';
-import { useEffect, useState, useLayoutEffect , useContext} from 'react';
-import { DrinksContext } from '../pages';
+import * as React from "react";
+import Item from "./Item";
+import { useContext } from "react";
+import { Container } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
+import { DrinksContext } from "../pages";
 
-const List = (props : any)=>{
+//@types
+import { IDrink } from "../@types/drink";
 
-    const drinks = useContext(DrinksContext)
-    
-    console.log({drinks})
+const List = () => {
+  const drinks = useContext(DrinksContext);
 
-    return <>
-    <Item/>
-    </>
-}
+  return (
+    <Container sx={{ py: 8 }} maxWidth="md">
+      <Grid
+        container
+        spacing={4}
+        // direction="column"
+        // alignItems="center"
+        // justify="center"
+      >
+        
+          {drinks.map((drink) => {
+            return <Grid item xs={12} sm={6} md={4}>
+                <Item {...drink} key={drink.idDrink} />
+                </Grid>
+          })}
+        
+      </Grid>
+    </Container>
+  );
+};
 
-
-
-export default List
+export default List;
