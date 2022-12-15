@@ -10,7 +10,6 @@ const RenderImage = ({ src }: ImageProp) => {
         width: "100",
         aspectRatio: '1.1',
         position: "relative",
-        border: "1px solid red",
         display:'grid',
         alignContent:'center'
       }}>

@@ -1,29 +1,58 @@
 import * as React from "react";
-import Item from "./Item";
 import { useContext } from "react";
-import { Container } from "@mui/material";
-import Grid from "@mui/material/Grid";
 
+//components
+import Item from "./Item";
 import { DrinksContext } from "../pages";
 
+//mui
+import Grid from "@mui/material/Grid";
+import SortIcon from "@mui/icons-material/Sort"
+import Button from '@mui/material/Button';
+
+
+//styles
+import styles from "../styles/List.module.css";
+
 //@types
-import { IDrink } from "../@types/drink";
+// import { IDrink } from "../@types/drink";
 
 const List = () => {
   const drinks = useContext(DrinksContext);
+  const [arrOfDrinks, setArrOfDrinks] = React.useState(drinks);
+  const [sorted, setSorted] = React.useState(false)
+
+  const onSortHandler = () => {
+    if(sorted) return
+    console.log('sorting')
+    let newArray = arrOfDrinks.map((e) => e);
+    setArrOfDrinks(newArray.sort((a, b) => (a.strDrink > b.strDrink ? 1 : -1)));
+    setSorted(true)
+  };
+
+  const onResetHandler = ()=>{
+    setArrOfDrinks(drinks)
+    setSorted(false)
+  }
 
   return (
-    <Container sx={{ py: 8 }} maxWidth="md">
-      <Grid container spacing={4}>
-        {drinks.map((drink) => {
-          return (
-            <Grid item xs={12} sm={6} md={4}>
-              <Item {...drink} key={drink.idDrink} />
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Container>
+    <>
+      <div className={styles.iconsContainer} >
+        <Button disabled={!sorted} className={styles.icon} variant="outlined" onClick={onResetHandler}>Reset</Button>
+        <SortIcon  className={styles.icon} onClick={onSortHandler}/>
+      </div>
+      <div>
+        <Grid container spacing={4}>
+          {arrOfDrinks.map((drink) => {
+            return (
+              <Grid key={drink.idDrink} item xs={12} sm={6} md={4}>
+                <Item {...drink} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
+    </>
   );
 };
 

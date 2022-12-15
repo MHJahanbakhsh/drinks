@@ -46,7 +46,7 @@ const Item = (props : IDrink)=>{
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         {props.strCategory}
       </Typography>
-      <Typography variant="h6" component="div">
+      <Typography variant="h6" component="div" display="inline" >
       {props.strDrink}
       </Typography>
       <Typography sx={{ mb: 1.5 }} color="text.secondary">

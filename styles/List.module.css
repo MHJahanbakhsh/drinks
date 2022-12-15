@@ -1,0 +1,12 @@
+.icon{
+    float: right;
+    margin-left: 10px;
+    height: 35px;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.iconsContainer{
+    margin-bottom: 5px;
+}
