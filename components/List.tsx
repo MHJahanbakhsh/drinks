@@ -14,20 +14,14 @@ const List = () => {
 
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
-      <Grid
-        container
-        spacing={4}
-        // direction="column"
-        // alignItems="center"
-        // justify="center"
-      >
-        
-          {drinks.map((drink) => {
-            return <Grid item xs={12} sm={6} md={4}>
-                <Item {...drink} key={drink.idDrink} />
-                </Grid>
-          })}
-        
+      <Grid container spacing={4}>
+        {drinks.map((drink) => {
+          return (
+            <Grid item xs={12} sm={6} md={4}>
+              <Item {...drink} key={drink.idDrink} />
+            </Grid>
+          );
+        })}
       </Grid>
     </Container>
   );
