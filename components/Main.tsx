@@ -1,17 +1,33 @@
-import * as React from 'react';
+import React from "react";
 
-import List from './List';
-import Order from './Order';
+import List from "./List";
+import Order from "./Order";
 import { Container } from "@mui/material";
 
-const 
-const Main = ()=>{
+//types
+import { ISelectedDrinksContext } from "../@types/drink";
 
-    return <Container sx={{ py: 4 }} maxWidth="lg">
-    <List/>
-    <Order/>
-    </Container>
-    
-}
+export const SelectetDrinksContext = React.createContext({
+  selectedDrinks: 0,
+  setSelectedDrinks: (prev:any) => {},
+});
 
-export default Main
+
+
+const Main = () => {
+    const [selectedDrinks, setSelectedDrinks] = React.useState(0);
+const value: ISelectedDrinksContext = {
+  selectedDrinks,
+  setSelectedDrinks,
+};
+  return (
+    <SelectetDrinksContext.Provider value={value}>
+      <Container sx={{ py: 4 }} maxWidth="lg">
+        <List />
+        <Order />
+      </Container>
+    </SelectetDrinksContext.Provider>
+  );
+};
+
+export default Main;

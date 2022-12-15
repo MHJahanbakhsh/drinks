@@ -1,4 +1,5 @@
 import React from "react";
+import { SelectetDrinksContext } from "../Main";
 
 import { ButtonGroup } from "@mui/material";
 import { Badge } from "@mui/material";
@@ -7,8 +8,12 @@ import { Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
+
+
 export default function AddButton() {
 const [itemCount, setItemCount] = React.useState(0);
+const { selectedDrinks, setSelectedDrinks } = React.useContext(SelectetDrinksContext);
+
 
 return (
 	<div style={{ display: "block", marginTop:'10px'}}>
@@ -19,7 +24,8 @@ return (
 		<ButtonGroup>
 		<Button
 			onClick={() => {
-			setItemCount(Math.max(itemCount - 1, 0));
+			setItemCount(Math.max(itemCount - 1, 0))
+			setSelectedDrinks(Math.max(selectedDrinks - 1, 0))
 			}}
 		>
 			{" "}
@@ -28,6 +34,7 @@ return (
 		<Button
 			onClick={() => {
 			setItemCount(itemCount + 1);
+			setSelectedDrinks(selectedDrinks+1)
 			}}
 		>
 			{" "}
