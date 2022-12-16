@@ -1,12 +1,19 @@
-import { Box } from "@mui/material"
-import { Typography } from "@mui/material"
-import Copyright from "../utils/Copyright"
+import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
+import Copyright from "../utils/Copyright";
+import { BottomNavigation } from "@mui/material";
 
-export default function Footer(){
-    return <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-    <Typography variant="h6" align="center" gutterBottom>
-      Cocktail selector
-    </Typography>
-    <Copyright />
-  </Box>
+export default function Footer() {
+  return (
+    <BottomNavigation sx={{marginTop:'15px'}}>
+      <Box
+        sx={{
+          bgcolor: "background.paper"
+        }}
+        component="footer"
+      >
+        <Copyright />
+      </Box>
+    </BottomNavigation>
+  );
 }

@@ -1,7 +1,10 @@
 import React from "react";
 
+//components
 import List from "./List";
 import Order from "./Order";
+
+//mui
 import { Container } from "@mui/material";
 
 //types
@@ -21,8 +24,9 @@ const Main = () => {
   return (
     <SelectetDrinksContext.Provider value={value}>
       <Container sx={{ py: 4 }} maxWidth="lg">
+      <Order />
         <List />
-        <Order />
+        
       </Container>
     </SelectetDrinksContext.Provider>
   );

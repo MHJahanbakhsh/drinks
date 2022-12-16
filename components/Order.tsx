@@ -5,8 +5,7 @@ import { Typography } from '@mui/material';
 
 const Order = ()=>{
     const { selectedDrinks, setSelectedDrinks } = React.useContext(SelectetDrinksContext);
-    console.log(selectedDrinks)    
-    return <Typography align='center' variant="h4">{`You have selected ${selectedDrinks} drinks so far`}</Typography>
+    return <Typography sx={{height:'10vh'}} align='center' variant="h6">{`You have selected ${selectedDrinks} drinks so far`}</Typography>
 }
 
 export default Order
