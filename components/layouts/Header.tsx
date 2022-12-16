@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DrinksContext } from '../../pages';
 
 //mui
 import { styled, alpha } from '@mui/material/styles';
@@ -53,7 +54,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
+
 export default function Header() {
+  const drinks = React.useContext(DrinksContext)
+  const {arrOfDrinks,setArrOfDrinks} = drinks
+  const ArrRef = React.useRef(arrOfDrinks)
+
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const filteredArr = ArrRef.current.filter((drink)=>{
+      return drink.strDrink.trim().toLowerCase().includes(e.target.value.toLocaleLowerCase())
+    })
+    setArrOfDrinks(filteredArr)
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -73,6 +88,7 @@ export default function Header() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange = {onChangeHandler}
             />
           </Search>
         </Toolbar>
