@@ -58,3 +58,8 @@ export interface ISelectedDrinksContext {
   selectedDrinks: number;
   setSelectedDrinks: (prev:number)=>void | React.Dispatch<React.SetStateAction<number>>;
 }
+
+export interface IDrinkContext{
+  arrOfDrinks:IDrink[],
+  setArrOfDrinks:(prev:any)=>void | React.Dispatch<React.SetStateAction<number>>
+}

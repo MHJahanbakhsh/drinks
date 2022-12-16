@@ -18,8 +18,8 @@ import styles from "../styles/List.module.css";
 // import { IDrink } from "../@types/drink";
 
 const List = () => {
-  const drinks = useContext(DrinksContext);
-  const [arrOfDrinks, setArrOfDrinks] = React.useState(drinks);
+  const {arrOfDrinks,setArrOfDrinks} = useContext(DrinksContext);
+  const drinks = React.useRef(arrOfDrinks)
   const [sorted, setSorted] = React.useState(false)
 
   const onSortHandler = () => {
@@ -31,7 +31,8 @@ const List = () => {
   };
 
   const onResetHandler = ()=>{
-    setArrOfDrinks(drinks)
+    console.log('resetting')
+    setArrOfDrinks(drinks.current)
     setSorted(false)
   }
 

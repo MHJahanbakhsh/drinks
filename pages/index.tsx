@@ -10,7 +10,7 @@ import Header from '../components/layouts/Header'
 import Footer from '../components/layouts/Footer'
 
 //@types
-import { IDrink } from '../@types/drink'
+import { IDrink,IDrinkContext } from '../@types/drink'
 
 interface IResponse {
   ListOfDrinks:{
@@ -18,13 +18,18 @@ interface IResponse {
   }
 }
 
-export const DrinksContext = React.createContext([] as IDrink[])
+export const DrinksContext = React.createContext({
+  arrOfDrinks:[] as IDrink[],
+  setArrOfDrinks:(prev:any)=>{}
+})
 
 export default function Home(props:IResponse) {
   const {drinks}  = props.ListOfDrinks
-console.log(drinks)
+  const [arrOfDrinks,setArrOfDrinks] = React.useState(drinks)
+  const value:IDrinkContext = {arrOfDrinks,setArrOfDrinks}
+
   return (
-    <DrinksContext.Provider value={drinks}>
+    <DrinksContext.Provider value={value}>
     <div>
       <Head>
         <title>Drinks App</title>
