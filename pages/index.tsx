@@ -1,8 +1,6 @@
 import React from 'react'
-
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+
 
 //components
 import Main from '../components/Main'
@@ -49,13 +47,9 @@ export default function Home(props:IResponse) {
 
 
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
   const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
   const data = await res.json()
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       ListOfDrinks:data,

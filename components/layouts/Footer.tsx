@@ -1,14 +1,17 @@
+//mui
 import { Box } from "@mui/material";
-import { Typography } from "@mui/material";
-import Copyright from "../utils/Copyright";
 import { BottomNavigation } from "@mui/material";
+
+//components
+import Copyright from "../utils/Copyright";
+
 
 export default function Footer() {
   return (
-    <BottomNavigation sx={{marginTop:'15px'}}>
+    <BottomNavigation sx={{ marginTop: "15px" }}>
       <Box
         sx={{
-          bgcolor: "background.paper"
+          bgcolor: "background.paper",
         }}
         component="footer"
       >
